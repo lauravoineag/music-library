@@ -1,6 +1,7 @@
 node_modules
 #Development DB
 .env
+.env.test
 
 # Logs
 logs
