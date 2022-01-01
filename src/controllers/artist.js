@@ -63,3 +63,31 @@ exports.create = async (req, res) => {
 // exports.create = (req, res) => {
 //   res.sendStatus(201);
 // };
+
+//Read artist
+exports.read = async (_, res) => {
+  const db = await getDb();
+
+  try {
+    const [artists] = await db.query('SELECT * FROM Artist');
+
+    res.status(200).json(artists);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  db.close();
+};
+
+// Same as above for reading artists
+//const readArtistController = async (req, res) => {
+//   const db = await getDb();
+//   try {
+//     const result = await db.query('SELECT * FROM Artist');
+//     const [artists] = result;
+//     res.status(200).send(artists);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+//   db.close();
+// };
