@@ -9,4 +9,7 @@ router.post('/', artistController.create);
 //Route Read Artist
 router.get('/', artistController.read);
 
+//Route Reading a Single Artist
+router.get('/:artistId', artistController.readById);
+
 module.exports = router;
